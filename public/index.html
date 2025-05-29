@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Game</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ pageTitle }}</h1>
+
+        <div id="messages">
+            <p :style="{ color: message.isError ? 'red' : 'green' }">{{ message.text }}</p>
+        </div>
+
+        <div v-if="!game.isJoined">
+            <div id="room-creation">
+                <h2>Create Room</h2>
+                <input type="text" v-model="roomCreation.roomCode" placeholder="Room Code">
+                <input type="password" v-model="roomCreation.passcode" placeholder="Passcode">
+                <button @click="createRoom">Create Room</button>
+            </div>
+
+            <hr>
+
+            <div id="room-join">
+                <h2>Join Room</h2>
+                <input type="text" v-model="roomJoin.roomCode" placeholder="Room Code">
+                <input type="password" v-model="roomJoin.passcode" placeholder="Passcode">
+                <input type="text" v-model="roomJoin.userId" placeholder="Your User ID">
+                <button @click="joinRoom">Join Room</button>
+            </div>
+        </div>
+
+        <div v-if="game.isJoined" id="game-area">
+            <h2>Game Room: <span>{{ game.roomCode }}</span></h2>
+            <p>User ID: <span>{{ game.userId }}</span></p>
+
+            <div>
+                <h3>Users in Room:</h3>
+                <ul v-if="game.usersInRoom.length">
+                    <li v-for="user in game.usersInRoom" :key="user">{{ user }}</li>
+                </ul>
+                <p v-else>No other users in this room yet.</p>
+            </div>
+
+            <button @click="drawCard">Draw Card</button>
+            <button @click="reshuffleDeck">Reshuffle Deck</button>
+            <!-- <button @click="viewDeck">View Deck</button> -->
+
+            <div id="card-display">
+                <h3>Drawn Card:</h3>
+                <p>{{ game.drawnCardInfo }}</p>
+            </div>
+
+            <div id="deck-info">
+                <h3>Deck Information:</h3>
+                <p>Remaining Cards: <span>{{ game.remainingCardsCount }}</span></p>
+                <div v-if="deckView.showFullDeck" id="full-deck-view">
+                    <h4>Full Deck:</h4>
+                    <ul id="deck-list">
+                        <li v-for="card in deckView.cards" :key="card.suit + card.value">
+                            {{ card.value }} di {{ card.suit }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 8px;
+    margin: 5px 0 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+hr {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+#game-area, #room-creation, #room-join {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#card-display p, #deck-info p {
+    font-size: 1.1em;
+}
+
+#drawn-card-info {
+    font-weight: bold;
+    color: #d9534f;
+}
+
+#messages p {
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+#deck-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#deck-list li {
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+#deck-list li:last-child {
+    border-bottom: none;
+}
