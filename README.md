@@ -165,10 +165,4 @@ A card object has the following structure:
 }
 ```
 
-## Future Enhancements
-
-*   WebSocket integration for real-time updates.
-*   More robust user session management.
-*   A front-end interface.
-
 Feel free to contribute or suggest improvements!
